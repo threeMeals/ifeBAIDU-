@@ -91,11 +91,14 @@ function render(data) {
 	var numArr = ["一","二","三","四","五","六","七"];
 	var j = 0;
 	var resortUl = document.getElementById("resort");
+	var btn = document.getElementById("sort-btn");
+	
 	for(var i=0;i<data.length;i++){
 		resortUl.innerHTML += "<li>"+"第"+numArr[j]+"名： "+data[i][0]+":<b>"+data[i][1]+"</b>"+"</li>"	;
 		j++;
 	}
-		
+	
+	btn.style.display = 'none';
 }
 
 function btnHandle() {
