@@ -35,11 +35,20 @@ function addAqiData() {
    * 渲染aqi-table表格
    */
 function renderAqiList() {
+	var table = document.getElementById("aqi-table");
 	var items = "<td>城市</td><td>空气质量</td><td>操作</td>";
 	for(var city in aqiData){
 		 items += "<tr><td>"+city+"</td><td>"+aqiData[city]+"</td><td><button data-city='"+city+"'>删除</button></td></tr>"		 
 	}
 	document.getElementById("aqi-table").innerHTML = city ? items : "";
+	
+	// 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
+	
+	var delBtns = table.getElementsByTagName("button");
+	for(var i=0; i<delBtns.length;i++){
+		delBtns[i].onclick = delBtnHandle;
+	}
+	
 }
 
 /**
@@ -59,7 +68,7 @@ function delBtnHandle() {
 	var cityAtrr = this.getAttribute("data-city");//获取按钮的标识属性
 	delete aqiData[cityAtrr];//从aqiData删除
 	console.log(cityAtrr);//重新绘制表格
-	//renderAqiList();
+	renderAqiList();
 }
 
 
@@ -68,12 +77,7 @@ function init() {
 // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
 	var addBtn = document.getElementById("add-btn");
 	addBtn.onclick = addBtnHandle;
-// 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
-	var table = document.getElementById("aqi-table");
-	var delBtns = table.getElementsByTagName("button");
-	for(var i=0; i<delBtns.length;i++){
-		delBtns[i].onclick = delBtnHandle;
-	}
+
 }
 
 init();
