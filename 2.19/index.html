@@ -5,7 +5,9 @@
     <title>IFE JavaScript Task 01</title>
 		<style>
 			.result{margin-top: 10px;}
-			.num-block{display: inline-block; margin-right: 10px;width: 40px; height: 40px; line-height: 40px; text-align: center; background: red;}
+			.num-block{display: inline-block; margin-right: 10px;width: 40px; height: 40px; line-height: 40px; text-align: center; background: #FA8072; color: #FFF;}
+			.render-tree{position: relative; height: 120px;}
+			.render-item{position: absolute; width: 10px;background: #FA8072; bottom: 0;}
 		</style>
   </head>
 <body>
@@ -15,10 +17,14 @@
   	<button id="right-in">右侧入</button>
   	<button id="left-out">左侧出</button>
   	<button id="right-out">右侧出</button>
+  	<button id="sortBtn">排序</button>
   </div>
   <div class="result" id="result">
-  	<!--<div class="num-block">1</div><div class="num-block">2</div>-->
-  	
+  </div>
+  <div class="render-tree" id="render-tree">
+  	<!--<div class="render-item" style="height: 30; left: 0;"></div>
+  	<div class="render-item" style="height: 40; left: 15;"></div>
+  	<div class="render-item" style="height: 80; left: 30;"></div>-->
   </div>
   <script src="task.js"></script>
 </body>
